@@ -1,0 +1,2 @@
+#!/bin/sh
+tesseract $1.$2.exp$3.tif $1.$2.exp$3 box.train.stderr

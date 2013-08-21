@@ -1,0 +1,19 @@
+#!/bin/sh
+
+unicharset_extractor `ls $1.$2.exp*.box`
+
+shapeclustering -F font_properties -U unicharset `ls $1.$2.exp*.tr`
+mftraining -F font_properties -U unicharset -O $1.unicharset `ls $1.$2.exp*.tr`
+cntraining `ls $1.$2.exp*.tr`
+
+echo "Skipping dictionary data ..."
+echo "Skipping unicharambigs ..."
+
+mv shapetable $1.shapetable
+mv normproto $1.normproto
+mv inttemp $1.inttemp
+mv pffmtable $1.pffmtable
+
+combine_tessdata $1.
+
+sudo cp $1.traineddata /usr/share/tesseract-ocr/tessdata/
