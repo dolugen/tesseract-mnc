@@ -16,4 +16,6 @@ mv pffmtable $1.pffmtable
 
 combine_tessdata $1.
 
+echo "Copying $1.traineddata to tessdata ..."
 sudo cp $1.traineddata /usr/share/tesseract-ocr/tessdata/
+
