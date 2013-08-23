@@ -6,7 +6,7 @@ shapeclustering -F font_properties -U unicharset `ls $1*.tr`
 mftraining -F font_properties -U unicharset -O $1.unicharset `ls $1*.tr`
 cntraining `ls $1*.tr`
 
-echo "Skipping dictionary data ..."
+wordlist2dawg frequent_words_list $1.freq-dawg $1.unicharset
 echo "Skipping unicharambigs ..."
 
 mv shapetable $1.shapetable
