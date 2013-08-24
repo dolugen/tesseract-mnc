@@ -1,6 +1,6 @@
 #!/bin/sh
 
-unicharset_extractor `ls $1*box`
+unicharset_extractor `ls $1*.box`
 
 shapeclustering -F font_properties -U unicharset `ls $1*.tr`
 mftraining -F font_properties -U unicharset -O $1.unicharset `ls $1*.tr`
