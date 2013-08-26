@@ -1,13 +1,12 @@
 Tesseract3 language files for Mongolian-Cyrillic
 ================================================
 
-Main guide: http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3
-
 
 Current status
 ++++++++++++++
 
 * Arial font set support
+
   - Arial
   - Arial Bold
   - Arial Italic
@@ -24,26 +23,34 @@ Dev tools
 
 * Ubuntu 12.04
 * Tesseract 3.02 with Leptonica (tesseract-ocr)
-* qt-box-editor (for very efficient box editing)
+* qt-box-editor_ (for very efficient box editing)
+  
   Dependencies:
+
    - qt4-qmake
    - libqt4-dev
    - libleptonica-dev
    - libtesseract-dev
+
 * Gimp (for creating training images)
+
+.. _qt-box-editor: http://zdenop.github.io/qt-box-editor/
 
 Training routine
 ++++++++++++++++
 
-You should read the main TesseractTraining3 guide.
+You should read the main TrainingTesseract3_ guide.
+
+.. _TrainingTesseract3: http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3
+
 
 Generate training images
 ------------------------
 
-Use the test in training_text.txt to create TIFF image file.
-The text should have line spacing and letter spacing of at least 2.0.
+Use the text in training_text.txt to create TIFF image files.
+The text block should have line spacing and letter spacing of at least 2.0.
 
-Use 300ppi resolution and 10pt font size.
+Use at least 300ppi resolution. 10pt font size should suffice.
 
 In Gimp, save the image as "tif" and choose "deflate" as compression.
 
@@ -63,7 +70,7 @@ You can use a shortcut for the latter command:
     ./tess_mkbox mnc [fontname] [expnum]
 
 Edit the generated .box file to correct misrecognized characters.
-This is the most time consuming task.
+**This is the most time consuming task.**
 
 Train
 -----
@@ -82,8 +89,8 @@ Update font_properties
 If you're adding a new font, you should add it to font_properties file.
 Look up the main guide about it.
 
-The rest
---------
+The rest of it
+--------------
 
 I'll just use the tess_combine script to do the rest. If you need details see the main guide.
 
@@ -91,4 +98,11 @@ I'll just use the tess_combine script to do the rest. If you need details see th
 
 This will generate required files and will install the final mnc.traineddata file.
 
+Then test your new traineddata, generate box files from it, and so on...
 
+How to contribute
++++++++++++++++++
+
+You can test the language data and/or train new fonts for it. 
+
+If you think the existing training text doesn't do well, improve it, retrain it.
